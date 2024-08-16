@@ -5,6 +5,7 @@ parrafo.innerHTML=`Indica un número del 1 al 10`;*/
 
 let numeroSecreto=generarNumeroSecreto();
 let intentos=1;
+let listaNumerosSorteados=[];
 
 function asignarTextoElemento(elemento,texto){
     let elementoHTML=document.querySelector(elemento);
@@ -56,5 +57,12 @@ function limpiarCaja(){
  }
 
 function generarNumeroSecreto() {
-    return Math.floor(Math.random()*10)+1;
+    let numeroGenerado= Math.floor(Math.random()*10)+1;
+    // Si el numero generado esta en la lista
+    if (listaNumerosSorteados.includes(numeroGenerado)) {
+      return(generarNumeroSecreto);
+    } else {
+      listaNumerosSorteados.push(numeroGenerado);
+      return(numeroGenerado);
+    }
 }
